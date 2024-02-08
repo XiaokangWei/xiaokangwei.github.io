@@ -1,3 +1,317 @@
-<p>Hello 大家好</p>
-<p>我是霸都丶傲天，这是我的个人网站。 </p>
-<p>很高兴你来到这里, 你可以在以下的网站找到我</p>
+<!DOCTYPE html>
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>TexIR: Multi-view Inverse Rendering for Large-scale Real-world Indoor Scenes</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href=""> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="./files/bootstrap.min.css">
+    <link rel="stylesheet" href="./files/font-awesome.min.css">
+    <link rel="stylesheet" href="./files/codemirror.min.css">
+    <link rel="stylesheet" href="./files/app.css">
+    <link rel="stylesheet" href="./files/www-player-webp.css">
+    <link rel="stylesheet" href="./files/youtube_video_container.css">
+
+    <link rel="stylesheet" href="./files/bootstrap.min(1).css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0ZMW34H4P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-E0ZMW34H4P');
+    </script>
+    
+    <script src="./files/jquery.min.js"></script>
+    <script src="./files/bootstrap.min.js"></script>
+    <script src="./files/codemirror.min.js"></script>
+    <script src="./files/clipboard.min.js"></script>
+
+    <script src="./files/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+                TexIR:<br>Multi-view Inverse Rendering for Large-scale Real-world Indoor Scenes<br>
+                <small>
+                    CVPR 2023
+                </small>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        
+                          Zhen Li
+                        
+                        <br>
+
+                        <a href="https://www.realsee.ai">
+                            "Realsee"
+                        </a>
+                        
+                    </li>
+                    <li>
+                        
+                          Lingli Wang
+                        
+                        <br>
+                        <a href="https://www.realsee.ai">
+                            "Realsee"
+                        </a>
+                    </li>
+                    <li>
+                        
+                          Mofang Cheng
+                        
+                        <br>
+                        <a href="https://www.realsee.ai">
+                            "Realsee"
+                        </a>
+                    </li>
+                    <li>
+                        
+                          Cihui Pan<sup>*</sup>
+                        
+                        <br>
+                        <a href="https://www.realsee.ai">
+                            "Realsee"
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://jszy.nwpu.edu.cn/jiaqiyang.html">
+                          Jiaqi Yang<sup>*</sup>
+                        </a>
+                        <br>
+                        "Northwestern Polytechnical University"
+                    </li>
+                </ul>
+                
+                (<sup>*</sup>Corresonding author)
+                <!-- Anonymous -->
+            </div>
+        </div>
+
+
+
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2211.10206">
+                            <img src="./files/arxiv_preview.png" height="50px"><br>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="_blank">
+                            <img src="_blank" height="120px"><br>
+                                <h4><strong>Supplementary</strong></h4>
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="https://youtu.be/lDKxJxg9o94" target="_blank" rel="noopener noreferrer">
+                            <image src="./files/youtube_icon_dark.png" height="50px">
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://github.com/LZleejean/TexIR_code">
+                            <img src="./files/github_pad.png" height="50px"><br>
+                                <h4><strong>Code&Dataset</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+        </div>
+
+        
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <hr style="margin-top: 0px;">
+                <img src="files/fig1.png" class="img-responsive" alt="overview"> <br>
+                <p class="text-justify">
+                    Figure 1. Given a set of posed sparse-view images for a large-scale scene, we reconstruct global illumination and SVBRDFs. The recovered properties are able to produce convincing results for several mixed-reality applications such as material editing, editable novel view synthesis and relighting. Note that we change roughness of all walls, and albedo of all floors. The detailed specular reflectance shows that our method successfully decomposes physically-reasonable SVBRDFs and lighting. Please refer to supplementary videos for more animations.
+                </p>
+
+                <h3>
+                    <b>Abstract</b>
+                </h3>
+                
+                    <!-- <iframe src="./files/framework_1.pdf" width="600" height="400"></iframe> -->
+                <hr style="margin-top: 0px;">
+                <p class="text-justify">
+                    We present a multi-view inverse rendering method for large-scale real-world indoor scenes that reconstructs global illumination and physically-reasonable SVBRDFs. Unlike previous representations, where the global illumination of large scenes is simplified as multiple environment maps, we propose a compact representation called Texture-based Lighting (TBL). It consists of 3D meshs and HDR textures, and efficiently models direct and infinite-bounce indirect lighting of the entire large scene. Based on TBL, we further propose a hybrid lighting representation with precomputed irradiance, which significantly improves the efficiency and alleviate the rendering noise in the material optimization. To physically disentangle the ambiguity between materials, we propose a three-stage material optimization strategy based on the priors of semantic segmentation and room segmentation. Extensive experiments show that the proposed method outperforms the state-of-the-arts quantitatively and qualitatively, and enables physically-reasonable mixed-reality applications such as material editing, editable novel view synthesis and relighting.
+                </p>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b>Video</b>
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/watch?v=lDKxJxg9o94" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b>Overview</b>
+                </h3>
+                <hr style="margin-top: 0px;">
+                <img src="files/overview.png" class="img-responsive" alt="overview"><br>
+                <!-- <iframe src="./files/framework_1.pdf" width="600" height="400"></iframe> -->
+                <p class="text-justify"></p>
+                    Figure 2. Overview of our inverse rendering pipeline. Given sparse calibrated HDR images for a large-scale scene, we reconstruct the geometry and HDR textures as our lighting representation. PBR material textures of the scene, including albedo and roughness, are optimized by differentiable rendering (DR). The ambiguity between materials is disentangled by the semantics prior and the room segmentation prior. Gradient flows in Green Background.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b>Roughness Comparison on Synthetic Dataset</b>
+                </h3>
+                <hr style="margin-top: 0px;">
+                <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                  <source src="files/roughness_comparison.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b>Novel View Comparison on Synthetic Dataset</b>
+                </h3>
+                <hr style="margin-top: 0px;">
+                <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                  <source src="files/novel_view_comparison.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b>Material Editing</b>
+                </h3>
+                <hr style="margin-top: 0px;">
+                <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                  <source src="files/material_editing_short.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b>Editable Novel View Synthesis</b>
+                </h3>
+                <hr style="margin-top: 0px;">
+                <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                  <source src="files/editabl_novel_view.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b>Relighting</b>
+                </h3>
+                <hr style="margin-top: 0px;">
+                <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
+                  <source src="files/relighting-short.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b>Texture Assets</b>
+                </h3>
+                <hr style="margin-top: 0px;">
+                <img src="files/textures.jpg" class="img-responsive" alt="overview"><br>
+            </div>
+        </div>
+
+
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly="" style="display: none;">
+@inproceedings{li2022phyir,
+    title={PhyIR: Physics-based Inverse Rendering for Panoramic Indoor Images},
+    author={Li, Zhen and Wang, Lingli and Huang, Xiang and Pan, Cihui and Yang, Jiaqi.},
+    booktitle = {Proc. IEEE Conf. on Computer Vision and Pattern Recognition (CVPR)}, 
+    year={2022}
+}
+                    </textarea>
+                </div>
+            </div>
+        </div> -->
+
+
+      <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b>BibTeX</b>
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly="" style="display: none;">
+@inproceedings{li2022texir,
+    title={Multi-view Inverse Rendering for Large-scale Real-world Indoor Scenes},
+    author={Li, Zhen and Wang, Lingli and Cheng, Mofang and Pan, Cihui and Yang, Jiaqi.},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, 
+    year={2023}
+}
+                    </textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b>Acknowledgements</b>
+                </h3>
+                <hr style="margin-top: 0px;">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>.
+                <p></p>
+            </div>
+        </div>
+    <!-- </div> -->
+
+
+</body></html>

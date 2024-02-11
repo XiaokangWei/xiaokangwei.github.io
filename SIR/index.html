@@ -14,14 +14,14 @@
   <!-- <link rel="icon" type="image/png" href=""> -->
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="./files/bootstrap.min.css">
-    <link rel="stylesheet" href="./files/font-awesome.min.css">
-    <link rel="stylesheet" href="./files/codemirror.min.css">
-    <link rel="stylesheet" href="./files/app.css">
-    <link rel="stylesheet" href="./files/www-player-webp.css">
-    <link rel="stylesheet" href="./files/youtube_video_container.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/codemirror.min.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/www-player-webp.css">
+    <link rel="stylesheet" href="./css/youtube_video_container.css">
 
-    <link rel="stylesheet" href="./files/bootstrap.min(1).css">
+    <link rel="stylesheet" href="./css/bootstrap.min(1).css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0ZMW34H4P"></script>
@@ -33,12 +33,12 @@
       gtag('config', 'G-E0ZMW34H4P');
     </script>
     
-    <script src="./files/jquery.min.js"></script>
-    <script src="./files/bootstrap.min.js"></script>
-    <script src="./files/codemirror.min.js"></script>
-    <script src="./files/clipboard.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/codemirror.min.js"></script>
+    <script src="./js/clipboard.min.js"></script>
 
-    <script src="./files/app.js"></script>
+    <script src="./js/app.js"></script>
 </head>
 
 <body>
@@ -46,9 +46,6 @@
         <div class="row">
             <h1 class="col-md-12 text-center">
                 TexIR:<br>Multi-view Inverse Rendering for Large-scale Real-world Indoor Scenes<br>
-                <small>
-                    CVPR 2023
-                </small>
             </h1>
         </div>
         <div class="row">
@@ -113,7 +110,7 @@
                     <ul class="nav nav-pills nav-justified">
                         <li>
                             <a href="https://arxiv.org/abs/2211.10206">
-                            <img src="./files/arxiv_preview.png" height="50px"><br>
+                            <img src="./assets/images/arxiv_preview.png" height="50px"><br>
                                 <h4><strong>Paper</strong></h4>
                             </a>
                         </li>
@@ -125,13 +122,13 @@
                         </li> -->
                         <li>
                             <a href="https://youtu.be/lDKxJxg9o94" target="_blank" rel="noopener noreferrer">
-                            <image src="./files/youtube_icon_dark.png" height="50px">
+                            <image src="./assets/images/youtube_icon_dark.png" height="50px">
                                 <h4><strong>Video</strong></h4>
                             </a>
                         </li>
                         <li>
                             <a href="http://github.com/LZleejean/TexIR_code">
-                            <img src="./files/github_pad.png" height="50px"><br>
+                            <img src="./assets/images/github_pad.png" height="50px"><br>
                                 <h4><strong>Code&Dataset</strong></h4>
                             </a>
                         </li>
@@ -145,7 +142,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <hr style="margin-top: 0px;">
-                <img src="files/fig1.png" class="img-responsive" alt="overview"> <br>
+                <img src="assets/images/fig1.png" class="img-responsive" alt="overview"> <br>
                 <p class="text-justify">
                     Figure 1. Given a set of posed sparse-view images for a large-scale scene, we reconstruct global illumination and SVBRDFs. The recovered properties are able to produce convincing results for several mixed-reality applications such as material editing, editable novel view synthesis and relighting. Note that we change roughness of all walls, and albedo of all floors. The detailed specular reflectance shows that our method successfully decomposes physically-reasonable SVBRDFs and lighting. Please refer to supplementary videos for more animations.
                 </p>
@@ -154,7 +151,7 @@
                     <b>Abstract</b>
                 </h3>
                 
-                    <!-- <iframe src="./files/framework_1.pdf" width="600" height="400"></iframe> -->
+                    <!-- <iframe src="./assets/images/framework_1.pdf" width="600" height="400"></iframe> -->
                 <hr style="margin-top: 0px;">
                 <p class="text-justify">
                     We present a multi-view inverse rendering method for large-scale real-world indoor scenes that reconstructs global illumination and physically-reasonable SVBRDFs. Unlike previous representations, where the global illumination of large scenes is simplified as multiple environment maps, we propose a compact representation called Texture-based Lighting (TBL). It consists of 3D meshs and HDR textures, and efficiently models direct and infinite-bounce indirect lighting of the entire large scene. Based on TBL, we further propose a hybrid lighting representation with precomputed irradiance, which significantly improves the efficiency and alleviate the rendering noise in the material optimization. To physically disentangle the ambiguity between materials, we propose a three-stage material optimization strategy based on the priors of semantic segmentation and room segmentation. Extensive experiments show that the proposed method outperforms the state-of-the-arts quantitatively and qualitatively, and enables physically-reasonable mixed-reality applications such as material editing, editable novel view synthesis and relighting.
@@ -182,8 +179,8 @@
                     <b>Overview</b>
                 </h3>
                 <hr style="margin-top: 0px;">
-                <img src="files/overview.png" class="img-responsive" alt="overview"><br>
-                <!-- <iframe src="./files/framework_1.pdf" width="600" height="400"></iframe> -->
+                <img src="assets/images/overview.png" class="img-responsive" alt="overview"><br>
+                <!-- <iframe src="./assets/images/framework_1.pdf" width="600" height="400"></iframe> -->
                 <p class="text-justify"></p>
                     Figure 2. Overview of our inverse rendering pipeline. Given sparse calibrated HDR images for a large-scale scene, we reconstruct the geometry and HDR textures as our lighting representation. PBR material textures of the scene, including albedo and roughness, are optimized by differentiable rendering (DR). The ambiguity between materials is disentangled by the semantics prior and the room segmentation prior. Gradient flows in Green Background.
                 </p>
@@ -197,7 +194,7 @@
                 </h3>
                 <hr style="margin-top: 0px;">
                 <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
-                  <source src="files/roughness_comparison.mp4" type="video/mp4">
+                  <source src="assets/videos/roughness_comparison.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -208,7 +205,7 @@
                 </h3>
                 <hr style="margin-top: 0px;">
                 <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
-                  <source src="files/novel_view_comparison.mp4" type="video/mp4">
+                  <source src="assets/videos/novel_view_comparison.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -219,7 +216,7 @@
                 </h3>
                 <hr style="margin-top: 0px;">
                 <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
-                  <source src="files/material_editing_short.mp4" type="video/mp4">
+                  <source src="assets/videos/material_editing_short.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -230,7 +227,7 @@
                 </h3>
                 <hr style="margin-top: 0px;">
                 <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
-                  <source src="files/editabl_novel_view.mp4" type="video/mp4">
+                  <source src="assets/videos/editabl_novel_view.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -241,7 +238,7 @@
                 </h3>
                 <hr style="margin-top: 0px;">
                 <video id="v0" width="100%" autoplay="" loop="" muted="" controls="">
-                  <source src="files/relighting-short.mp4" type="video/mp4">
+                  <source src="assets/videos/relighting-short.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -252,7 +249,7 @@
                     <b>Texture Assets</b>
                 </h3>
                 <hr style="margin-top: 0px;">
-                <img src="files/textures.jpg" class="img-responsive" alt="overview"><br>
+                <img src="assets/videos/textures.jpg" class="img-responsive" alt="overview"><br>
             </div>
         </div>
 

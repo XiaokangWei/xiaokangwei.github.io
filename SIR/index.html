@@ -55,21 +55,21 @@
   <!-- insert video -->
     <section id="teaser-videos">
         <div class="flex-row">
-            <figure style="width: 33%; float: left">
+            <figure style="width: 30%; float: left">
                 <video class="centered" width="100%" controls muted loop autoplay>
                     <source src="assets/insert_bathroom.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </figure>
             
-            <figure style="width: 33%; float: left">
+            <figure style="width: 30%; float: left">
                 <video class="centered" width="100%" controls muted loop autoplay>
                     <source src="assets/insert_restroom.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </figure>
             
-            <figure style="width: 33%; float: left">
+            <figure style="width: 30%; float: left">
                 <video class="centered" width="100%" controls muted loop autoplay>
                     <source src="assets/insert_office.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -86,7 +86,19 @@
         <div class="col-12 text-center">
           <h3>Abstract</h3>
             <hr style="margin-top:0px">
-          <p class="text-left"> Recent advances in implicit neural representations and differentiable rendering make it possible to simultaneously recover the geometry and materials of an object from multi-view RGB images captured under unknown static illumination. Despite the promising results achieved, indirect illumination is rarely modeled in previous methods, as it requires expensive recursive path tracing which makes the inverse rendering computationally intractable. In this paper, we propose a novel approach to efficiently recover spatially-varying indirect illumination. The key insight is that the indirect illumination can be conveniently derived from the neural radiance field learned from input images instead of being estimated jointly with direct illumination and materials. By properly modeling the indirect illumination and visibility of direct illumination, interreflection- and shadow-free albedo can be recovered. The experiments on both synthetic and real data demonstrate the superior performance of our approach compared to previous work and its capability to synthesize realistic renderings under novel viewpoints and illumination. </p>
+          <p class="text-left"> We propose SIR, an efficient method to decompose differentiable shadows for inverse rendering on indoor scenes
+using multi-view data, addressing the challenges in accurately decomposing the materials and lighting conditions.
+Unlike previous methods that struggle with shadow fidelity in complex lighting environments, our approach explicitly
+learns shadows for enhanced realism in material estimation
+under unknown light positions. Utilizing posed HDR images as input, SIR employs an SDF-based neural radiance
+field for comprehensive scene representation. Then, SIR integrates a shadow term with a three-stage material estimation
+approach to improve SVBRDF quality. Specifically, SIR is
+designed to learn a differentiable shadow, complemented
+by BRDF regularization, to optimize inverse rendering accuracy. Extensive experiments on both synthetic and real-world indoor scenes demonstrate the superior performance
+of SIR over existing methods in both quantitative metrics and
+qualitative analysis. The significant decomposing ability of
+SIR enables sophisticated editing capabilities like free-view
+relighting, object insertion, and material replacement.</p>
         </div>
       </div>
     </div>

@@ -75,22 +75,14 @@
             </figure>
         </div>
     </section>
-  
 
   <!-- abstract -->
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-          <h3>Abstract</h3>
-            <hr style="margin-top:0px">
-          <p class="text-left"> We propose SIR, an efficient method to decompose differentiable shadows for inverse rendering on indoor scenes using multi-view data, addressing the challenges in accurately decomposing the materials and lighting conditions. Unlike previous methods that struggle with shadow fidelity in complex lighting environments, our approach explicitly learns shadows for enhanced realism in material estimation under unknown light positions. Utilizing posed HDR images as input, SIR employs an SDF-based neural radiance field for comprehensive scene representation. Then, SIR integrates a shadow term with a three-stage material estimation approach to improve SVBRDF quality. Specifically, SIR is designed to learn a differentiable shadow, complemented by BRDF regularization, to optimize inverse rendering accuracy. Extensive experiments on both synthetic and real-world indoor scenes demonstrate the superior performance of SIR over existing methods in both quantitative metrics and qualitative analysis. The significant decomposing ability of SIR enables sophisticated editing capabilities like free-view relighting, object insertion, and material replacement.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <br>
-  
+  <section id="abstract"/>
+    <h2>Abstract</h2>
+    <hr>
+    <p class="text-left"> We propose SIR, an efficient method to decompose differentiable shadows for inverse rendering on indoor scenes using multi-view data, addressing the challenges in accurately decomposing the materials and lighting conditions. Unlike previous methods that struggle with shadow fidelity in complex lighting environments, our approach explicitly learns shadows for enhanced realism in material estimation under unknown light positions. Utilizing posed HDR images as input, SIR employs an SDF-based neural radiance field for comprehensive scene representation. Then, SIR integrates a shadow term with a three-stage material estimation approach to improve SVBRDF quality. Specifically, SIR is designed to learn a differentiable shadow, complemented by BRDF regularization, to optimize inverse rendering accuracy. Extensive experiments on both synthetic and real-world indoor scenes demonstrate the superior performance of SIR over existing methods in both quantitative metrics and qualitative analysis. The significant decomposing ability of SIR enables sophisticated editing capabilities like free-view relighting, object insertion, and material replacement.
+    </p>
+
     <figure style="width: 60%;">
         <a>
             <img width="80%" src="assets/teaser.png">
@@ -108,7 +100,6 @@
       Specifically, our model consists of three phases: 1) In phase 1, we sample a ray with direction and spatial point from the given posed HDR images. The geometry network learns the signed distance, and the HDR-radiance network learns radiance. Ray marching is then employed to obtain the surface point. 2) In phase 2, we sample diffuse incoming light from environment maps for learning irradiance. We also calculate the specular incoming light and the pseudo-hard shadow.3) In phase 3, hard shadow Shard is learned using Θh with pseudo ground truth. We then initialize the parameters using the optimized parameters of Θh. Instance-level BRDF regularizers are applied, and the whole rendering equation is optimized to update the soft shadow, albedo, and roughness.
       </p>
     </figure>
-  <br>
 
   <!-- citing -->
   <div class="container">

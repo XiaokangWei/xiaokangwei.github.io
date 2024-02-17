@@ -1,115 +1,385 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SIR: Multi-view Inverse Rendering with Decomposable Shadow for Indoor Scenes</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-  </head>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
 
-  <!-- cover -->
-  <section>
-    <div class="jumbotron text-center mt-0">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h2>SIR: Multi-view Inverse Rendering with Decomposable Shadow for Indoor Scenes</h2>
-            <hr>
-            <h6> 
-                <a href="https://xiaokangwei.github.io" target="_blank">Xiaokang Wei</a><sup>1,2</sup>, 
-                <a href="https://https://zhuomanliu.tech/" target="_blank">Zhuoman Liu</a><sup>1</sup>,
-                <a href="https://www.sd.polyu.edu.hk/aedlab/" target="_blank">Yan Luximon</a><sup>*,1,2</sup></h6>
-            <p><sup>1</sup>The Hong Kong Polytechnic University &nbsp;&nbsp; 
-                <sup>2</sup>Laboratory for Artificial Intelligence in Design, HKSAR
-            (<sup>*</sup>Corresonding author)</p>
-            
-            <div class="row justify-content-center">
-              <div class="column">
-                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/2402.06136.pdf" role="button"  target="_blank">
-                    <i class="fa fa-file"></i> Paper</a> </p>
-              </div>
-              <div class="column">
-                <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/XiaokangWei/SIR" role="button"  target="_blank">
-                  <i class="fa fa-github-alt"></i> Code</a> </p>
-              </div>
-              <div class="column">
-                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/XiaokangWei/SIR" role="button">
-                    <i class="fa fa-database"></i> Data</a> </p>
-              </div>
-              <!-- <div class="column">
-                  <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button">
-                    <i class="fa fa-file"></i> Supplementary </a> </p>
-              </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+body {
+    font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+}
+h1 {
+    font-weight:300;
+    line-height: 1.15em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+a:link,a:visited {
+    color: #1367a7;
+    text-decoration: none;
+}
+a:hover {
+    color: #208799;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+h1 {
+    font-size: 40px;
+    font-weight: 500;
+}
+h2 {
+    font-weight: 400;
+    margin: 16px 0px 4px 0px;
+}
+.paper-title {
+    padding: 16px 0px 16px 0px;
+}
+section {
+    margin: 32px 0px 32px 0px;
+    text-align: justify;
+    clear: both;
+}
+.col-6 {
+     width: 16.6%;
+     float: left;
+}
+.col-5 {
+     width: 20%;
+     float: left;
+}
+.col-4 {
+     width: 25%;
+     float: left;
+}
+.col-3 {
+     width: 33%;
+     float: left;
+}
+.col-2 {
+     width: 50%;
+     float: left;
+}
+.row, .author-row, .affil-row {
+     overflow: auto;
+}
+.author-row, .affil-row {
+    font-size: 20px;
+}
+.row {
+    margin: 16px 0px 16px 0px;
+}
+.authors {
+    font-size: 18px;
+}
+.affil-row {
+    margin-top: 16px;
+}
+.teaser {
+    max-width: 100%;
+}
+.text-center {
+    text-align: center;  
+}
+.screenshot {
+    width: 256px;
+    border: 1px solid #ddd;
+}
+.screenshot-el {
+    margin-bottom: 16px;
+}
+hr {
+    height: 1px;
+    border: 0; 
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+.material-icons {
+    vertical-align: -6px;
+}
+p {
+    line-height: 1.25em;
+}
+.caption {
+    font-size: 16px;
+    /*font-style: italic;*/
+    color: #666;
+    text-align: left;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+video {
+    display: block;
+    margin: auto;
+}
+figure {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#bibtex pre {
+    font-size: 14px;
+    background-color: #eee;
+    padding: 16px;
+}
+.blue {
+    color: #2c82c9;
+    font-weight: bold;
+}
+.orange {
+    color: #d35400;
+    font-weight: bold;
+}
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.paper-btn {
+  position: relative;
+  text-align: center;
+
+  display: inline-block;
+  margin: 8px;
+  padding: 8px 8px;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  
+  background-color: #1367a7;
+  color: #ecf0f1 !important;
+  font-size: 20px;
+  width: 100px;
+  font-weight: 600;
+}
+
+.supp-btn {
+  position: relative;
+  text-align: center;
+
+  display: inline-block;
+  margin: 8px;
+  padding: 8px 8px;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  
+  background-color: #1367a7;
+  color: #ecf0f1 !important;
+  font-size: 20px;
+  width: 150px;
+  font-weight: 600;
+}
+
+.paper-btn-parent {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0px;
+}
+.paper-btn:hover {
+    opacity: 0.85;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.venue {
+    color: #1367a7;
+}
+
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #EEEEEE;
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+</style>
+
+
+<div class="topnav" id="myTopnav">
+  <a href="https://www.nvidia.com/"><img width="100%" src="assets/nvidia.svg"></a>
+  <a href="https://nv-tlabs.github.io/" ><strong>Toronto AI Lab</strong></a>
+</div>
+
+
+<script type="text/javascript" src="../js/hidebib.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+<head>
+    <title>Learning Indoor Inverse Rendering with 3D Spatially-Varying Lighting</title>
+    <meta property="og:description" content="Learning Indoor Inverse Rendering with 3D Spatially-Varying Lighting"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141699104-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-141699104-1');
+    </script>
+</head>
+
+
+<body>
+<div class="container">
+    <div class="paper-title">
+        <h1>SIR: Multi-view Inverse Rendering with Decomposable Shadow for Indoor Scenes</h1>
     </div>
-  </section>
+    
+    <div id="authors">
+        <div class="author-row">
+            <div class="col-4 text-center"><a href="https://xiaokangwei.github.io/">Xiaokang Wei</a><sup>1,2</sup></div>
+            <div class="col-4 text-center"><a href="https://zhuomanliu.tech/">Zhuoman Liu</a><sup>1</sup></div>
+            <div class="col-4 text-center"><a href="https://scholar.google.com/citations?user=yRMNWQ0AAAAJ&hl=en">Yan Luximon</a><sup>1,2</sup></div>
+        </div>
 
-  <!-- insert video -->
+        <div class="affil-row">
+            <div class="col-3 text-center"><sup>1</sup> The Hong Kong Polytechnic University</a></div>
+            <div class="col-3 text-center"><sup>2</sup> Laboratory for Artificial Intelligence in Design, HKSAR</div>
+        </div>
+        <div class="affil-row">
+            <div class="venue text-center"><b>Arxiv</b></div>
+        </div>
+
+        <div style="clear: both">
+            <div class="paper-btn-parent">
+            <a class="supp-btn" href="assets/invrend21_paper.pdf">
+                <span class="material-icons"> description </span> 
+                 Paper
+            </a>
+            <!-- <a class="supp-btn" href="http://arxiv.org/abs/2402.06136">
+                <span class="material-icons"> description </span> 
+                 arXiv
+            </a> -->
+            <a class="supp-btn" href="assets/invrend21_bib.txt">
+                <span class="material-icons"> description </span> 
+                 BibTeX
+            </a>
+            </div>
+        </div>
+    </div>
+
     <section id="teaser-videos">
         <div class="flex-row">
             <figure style="width: 33%; float: left">
-                <video class="centered" width="98%" controls muted loop autoplay>
-                    <source src="assets/insert_bathroom.mp4" type="video/mp4">
+                <video class="centered" width="100%" controls muted loop autoplay>
+                    <source src="assets/1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </figure>
             
             <figure style="width: 33%; float: left">
-                <video class="centered" width="98%" controls muted loop autoplay>
-                    <source src="assets/insert_restroom.mp4" type="video/mp4">
+                <video class="centered" width="100%" controls muted loop autoplay>
+                    <source src="assets/2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </figure>
             
             <figure style="width: 33%; float: left">
-                <video class="centered" width="98%" controls muted loop autoplay>
-                    <source src="assets/insert_office.mp4" type="video/mp4">
+                <video class="centered" width="100%" controls muted loop autoplay>
+                    <source src="assets/3.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </figure>
         </div>
     </section>
 
-  <!-- abstract -->
-  <section id="abstract"/>
-    <h2>Abstract</h2>
-    <hr>
-    <p class="text-left"> We propose SIR, an efficient method to decompose differentiable shadows for inverse rendering on indoor scenes using multi-view data, addressing the challenges in accurately decomposing the materials and lighting conditions. Unlike previous methods that struggle with shadow fidelity in complex lighting environments, our approach explicitly learns shadows for enhanced realism in material estimation under unknown light positions. Utilizing posed HDR images as input, SIR employs an SDF-based neural radiance field for comprehensive scene representation. Then, SIR integrates a shadow term with a three-stage material estimation approach to improve SVBRDF quality. Specifically, SIR is designed to learn a differentiable shadow, complemented by BRDF regularization, to optimize inverse rendering accuracy. Extensive experiments on both synthetic and real-world indoor scenes demonstrate the superior performance of SIR over existing methods in both quantitative metrics and qualitative analysis. The significant decomposing ability of SIR enables sophisticated editing capabilities like free-view relighting, object insertion, and material replacement.
-    </p>
 
-    <figure style="width: 60%;">
-        <a>
-            <img width="80%" src="assets/teaser.png">
-        </a>
-        <p class="centered" style="margin-bottom: 1px;">
-        Given a set of posed multi-view HDR images of an indoor scene, SIR successfully disentangle the scene appearance into 3D neural fields of shape, global and spatially-varying illumination, soft shadows, and SVBRDFs, which can produce convincing results for several applications such as novel view synthesis, free-viewpoint relighting, object insertion, and material replacement
+    <section id="abstract"/>
+        <h2>Abstract</h2>
+        <hr>
+        <p>We propose SIR, an efficient method to decompose differentiable shadows for inverse rendering on indoor scenes using multi-view data, addressing the challenges in accu- rately decomposing the materials and lighting conditions. Unlike previous methods that struggle with shadow fidelity in complex lighting environments, our approach explicitly learns shadows for enhanced realism in material estimation under unknown light positions. Utilizing posed HDR im- ages as input, SIR employs an SDF-based neural radiance field for comprehensive scene representation. Then, SIR integrates a shadow term with a three-stage material estimation approach to improve SVBRDF quality. Specifically, SIR is designed to learn a differentiable shadow, complemented by BRDF regularization, to optimize inverse rendering ac- curacy. Extensive experiments on both synthetic and real-world indoor scenes demonstrate the superior performance of SIR over existing methods in both quantitative metrics and qualitative analysis. The significant decomposing ability of SIR enables sophisticated editing capabilities like free-view relighting, object insertion, and material replacement.
         </p>
-    </figure>
-  
-    <figure style="width: 80%; float: center">
-      <a>
-          <img width="90%" src="assets/model.png" class="centered">
-      </a>
-      <p class="centered" style="margin-bottom: 1px;">
-      Specifically, our model consists of three phases: 1) In phase 1, we sample a ray with direction and spatial point from the given posed HDR images. The geometry network learns the signed distance, and the HDR-radiance network learns radiance. Ray marching is then employed to obtain the surface point. 2) In phase 2, we sample diffuse incoming light from environment maps for learning irradiance. We also calculate the specular incoming light and the pseudo-hard shadow.3) In phase 3, hard shadow Shard is learned using Θh with pseudo ground truth. We then initialize the parameters using the optimized parameters of Θh. Instance-level BRDF regularizers are applied, and the whole rendering equation is optimized to update the soft shadow, albedo, and roughness.
-      </p>
-    </figure>
 
-  <!-- citing -->
-  <div class="container">
-    <div class="row ">
-      <div class="col-12">
-          <h3>Citation</h3>
-          <hr style="margin-top:0px">
-              <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+        <figure style="width: 100%;">
+            <a>
+                <img width="100%" src="assets/teaser.png">
+            </a>
+            <p class="caption" style="margin-bottom: 1px;">
+            Given a set of posed multi-view HDR images of an indoor scene, SIR successfully disentangle the scene appearance into 3D neu- ral fields of shape, global and spatially-varying illumination, soft shadows, and SVBRDFs, which can produce convincing results for several applications such as novel view synthesis, free-viewpoint relighting, object insertion, and material replacement.
+        </figure>
 
-<code>@inproceedings{@misc{wei2024sir,
+        <figure style="width: 100%; float: center">
+            <a>
+                <img width="90%" src="assets/model.png" class="centered">
+            </a>
+            <p class="caption" style="margin-bottom: 1px;">
+                The pipeline consists of three phases: 1) In phase 1, we sample a ray with direction v and spatial point x from the given posed HDR images. The geometry network fd learns the signed distance d, and the HDR-radiance network fc learns radiance Cˆ. Ray marching is then employed to obtain the surface point ˆx. 2) In phase 2, we sample diffuse incoming light Li,d from environment maps E for learning irradiance Iir. We also calculate the specular incoming light Li,s and the pseudo hard shadow ξ. 3) In phase 3, hard shadow Shard is learned using Θh with pseudo ground truth. We then initialize the parameters of Θs using the optimized parameters of Θh. Instance-level BRDF regularizers are applied, and the whole rendering equation is optimized to update the soft shadow Ssoft, albedo Aˆ, and roughness Rˆ.
+            </p>
+        </figure>
+
+    </section>
+
+    <section id="results">
+        <h2>Results</h2>
+        <hr>
+        <figure style="width: 100%;">
+            <a>
+                <img width="100%" src="assets/qual1.png">
+            </a>
+            <p class="caption" style="margin-bottom: 1px;">
+            <strong> Results on predicted albedo, normals and re-rendered image.</strong> 
+            Our holistic inverse rendering framework estimates a 3D volumetic lighting representation, and use a physics-based differentiable renderer to re-render the input image. Despite tackling a more challenging task, our model can better disambiguate and reproduce complex lighting effects with less artifacts compared to prior state-of-the-art methods. 
+            </p>
+        </figure>
+        <figure style="width: 100%;">
+            <a>
+                <img width="100%" src="assets/qual3.png">
+            </a>
+            <p class="caption" style="margin-bottom: 1px;">
+            <strong> Results on lighting estimation and specular sphere insertion. </strong> 
+            We compare the insertion results of a highly specular sphere. Our method produces both angular <strong>high-frequency details</strong> and realistic <strong>cast shadows</strong> with HDR lighting, outperforming prior methods.
+            </p>
+        </figure>
+        <figure style="width: 100%;">
+            <a>
+                <img width="100%" src="assets/qual2.png">
+            </a>
+            <p class="caption" style="margin-bottom: 1px;">
+            <strong> Results of virtual object insertion on real-world images. </strong> Our method generalizes well to real-world images and consistently produces realistic appearance and shadows.
+            </p>
+        </figure>
+        
+
+    </section>
+
+    <section id="bibtex">
+        <h2>Citation</h2>
+        <hr>
+        <pre><code>@misc{wei2024sir,
       title={SIR: Multi-view Inverse Rendering with Decomposable Shadow for Indoor Scenes}, 
       author={Xiaokang Wei and Zhuoman Liu and Yan Luximon},
       year={2024},
@@ -117,15 +387,28 @@
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
-}</code></pre>
-          <hr>
-      </div>
-    </div>
-  </div>
+</code></pre>
+    </section>
 
-  <footer class="text-center" style="margin-bottom:10px">
-      Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
-  </footer>
+    
+    <section id="paper">
+        <h2>Paper</h2>
+        <hr>
+        <div class="flex-row">
+            <div style="box-sizing: border-box; padding: 16px; margin: auto;">
+                <a href="assets/invrend21_paper.pdf"><img class="screenshot" src="assets/paper_preview.png"></a>
+            </div>
+            <div style="width: 55%">
+                <p><b>SIR: Multi-view Inverse Rendering with Decomposable Shadow for Indoor Scenes</b></p>
+                <p>Xiaokang Wei, Zhuoman Liu, Yan Luximon</p>
 
+                <div><span class="material-icons"> description </span><a href="assets/invrend21_paper.pdf"> Paper </a></div>
+                <div><span class="material-icons"> description </span><a href="http://arxiv.org/abs/2402.06136"> arXiv </a></div>
+                <div><span class="material-icons"> insert_comment </span><a href="assets/invrend21_bib.txt"> BibTeX</a></div>
+            </div>
+        </div>
+    </section>
+
+</div>
 </body>
 </html>

@@ -347,12 +347,17 @@ figure {
         <h3>Baselines</h3>
         <hr>
         <figure style="width: 100%;">
-            <a>
-                <img width="100%" src="assets/qual1.png">
-            </a>
+            <video class="centered" width="100%" controls muted loop autoplay>
+                <source src="assets/baseline_albedo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video class="centered" width="100%" controls muted loop autoplay>
+                <source src="assets/baseline_albedo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <p class="caption" style="margin-bottom: 1px;">
-            <strong> Results on predicted albedo, normals and re-rendered image.</strong> 
-            Our holistic inverse rendering framework estimates a 3D volumetic lighting representation, and use a physics-based differentiable renderer to re-render the input image. Despite tackling a more challenging task, our model can better disambiguate and reproduce complex lighting effects with less artifacts compared to prior state-of-the-art methods. 
+            <strong> Results on predicted albedo, roughness and synthetic image.</strong> 
+            Despite tackling a more challenging task, our model can better disambiguate and reproduce complex lighting effects with less artifacts compared to prior state-of-the-art methods. 
             </p>
         </figure>
 
@@ -370,7 +375,7 @@ figure {
 
         <h3>Applications</h3>
         <figure style="width: 100%;">
-            <video class="centered" width="80%" controls muted loop autoplay>
+            <video class="centered" width="100%" controls muted loop autoplay>
                 <source src="assets/editing.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
